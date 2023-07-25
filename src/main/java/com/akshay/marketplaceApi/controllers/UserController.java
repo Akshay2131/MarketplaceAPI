@@ -26,22 +26,19 @@ public class UserController {
     // Get Single User
     @GetMapping("/{userId}")
     public ResponseEntity<UserDto> getSingleUser(@PathVariable("userId") Integer uid) {
-        UserDto userDto = this.userService.getUserById(uid);
-        return new ResponseEntity<>(userDto, HttpStatus.OK);
+        return new ResponseEntity<>(this.userService.getUserById(uid), HttpStatus.OK);
     }
 
     // Get All Users
     @GetMapping("/")
     public ResponseEntity<List<UserDto>> getAllUsers() {
-        List<UserDto> allUsers = this.userService.getAllUsers();
-        return new ResponseEntity<>(allUsers, HttpStatus.OK);
+        return new ResponseEntity<>(this.userService.getAllUsers(), HttpStatus.OK);
     }
 
     // PUT - Update User
     @PutMapping("/{userId}")
     public ResponseEntity<UserDto> updateUser(@Valid @RequestBody UserDto userDto, @PathVariable("userId") Integer uid) {
-        UserDto updatedUserDto = this.userService.updateUser(userDto, uid);
-        return new ResponseEntity<>(updatedUserDto, HttpStatus.OK);
+        return new ResponseEntity<>(this.userService.updateUser(userDto, uid), HttpStatus.OK);
     }
 
     // DELETE - Delete User

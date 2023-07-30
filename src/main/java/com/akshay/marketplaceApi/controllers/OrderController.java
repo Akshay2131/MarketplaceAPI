@@ -44,20 +44,17 @@ public class OrderController {
 
     @GetMapping("/{orderId}")
     public ResponseEntity<OrderDto> getSingleOrder(@PathVariable("orderId") Integer oid) {
-        OrderDto orderDto = this.orderService.getOrderById(oid);
-        return new ResponseEntity<>(orderDto, HttpStatus.OK);
+        return new ResponseEntity<>(this.orderService.getOrderById(oid), HttpStatus.OK);
     }
 
     @PostMapping("/")
     public ResponseEntity<OrderDto> createOrder(@RequestBody OrderDto orderDto) {
-        OrderDto createdOrderDto = this.orderService.createOrder(orderDto);
-        return new ResponseEntity<> (createdOrderDto, HttpStatus.CREATED);
+        return new ResponseEntity<> (this.orderService.createOrder(orderDto), HttpStatus.CREATED);
     }
 
     @PutMapping("/{orderId}")
     public ResponseEntity<OrderDto> updateOrder(@RequestBody OrderDto orderDto, @PathVariable("orderId") Integer oid) {
-        OrderDto updatedOrderDto = this.orderService.updateOrder(orderDto, oid);
-        return ResponseEntity.ok(updatedOrderDto);
+        return ResponseEntity.ok(this.orderService.updateOrder(orderDto, oid));
     }
 
     @DeleteMapping("/{orderId}")

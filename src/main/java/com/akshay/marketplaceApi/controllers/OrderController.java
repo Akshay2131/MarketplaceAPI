@@ -1,28 +1,17 @@
 package com.akshay.marketplaceApi.controllers;
 
-import com.akshay.marketplaceApi.entities.Order;
-import com.akshay.marketplaceApi.entities.OrderProduct;
-import com.akshay.marketplaceApi.entities.Product;
-import com.akshay.marketplaceApi.exceptions.ResourceNotFoundException;
 import com.akshay.marketplaceApi.payloads.ApiResponse;
 import com.akshay.marketplaceApi.payloads.OrderDto;
-import com.akshay.marketplaceApi.payloads.OrderProductDto;
-import com.akshay.marketplaceApi.services.OrderProductService;
 import com.akshay.marketplaceApi.services.OrderService;
 import com.akshay.marketplaceApi.services.ProductService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
+
 
 @RestController
 @RequestMapping("/api/orders")
